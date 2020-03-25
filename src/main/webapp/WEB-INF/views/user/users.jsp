@@ -8,11 +8,19 @@
 <title>Users</title>
 </head>
 <body>
+<jsp:include page="../menu.jsp"></jsp:include>
 	This is users.jsp
 	<br/>
 	${action}
 	<table>
+	<tr>
+		<th>Username</th>
+    	<th>Password </th>
+    	<th>First name </th>
+    	<th>Last name</th>
+	</tr>
 	<c:forEach items="${list}" var="user">
+	
     	<tr>
     	<td>${user.username} </td>
     	<td>${user.password} </td>

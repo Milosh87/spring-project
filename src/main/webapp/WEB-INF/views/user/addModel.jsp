@@ -5,10 +5,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add company</title>
+<title>Add user</title>
 </head>
 <body>
-	This is add company .jsp page!
+	This is add User .jsp page!
+	
+	<jsp:include page="../menu.jsp"></jsp:include>
 	<br /> ${action}
 	
 	
