@@ -19,17 +19,11 @@ import rs.engineering.javagroup.spring_project.controller.UserController;
 @ComponentScan(basePackages = {
 		"rs.engineering.javagroup.spring_project.repo",
 		"rs.engineering.javagroup.spring_project.service",
-	
+		"rs.engineering.javagroup.spring_project.controller"
 		
 })
 public class MyWebContextConfig {
 	
-	
-	
-	@Bean
-	public UserController userController() {
-		return new UserController();
-	}
 	
 	@Bean
 	public ViewResolver viewResolver() {

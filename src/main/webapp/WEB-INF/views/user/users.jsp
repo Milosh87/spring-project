@@ -30,7 +30,7 @@
     	<td>${user.password} </td>
     	<td>${user.firstname} </td>
     	<td>${user.lastname} </td>
-    	<td><a href="${userId}">"${user.username}"</a> </td>
+    	<td><a href="${userId}">${user.username}</a> </td>
     	 </tr>
 </c:forEach>
 </table>

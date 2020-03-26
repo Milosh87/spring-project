@@ -8,13 +8,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
 
+import org.springframework.stereotype.Repository;
 
 import rs.engineering.javagroup.spring_project.dto.User;
 import rs.engineering.javagroup.spring_project.repo.UserRepository;
 
-@Component
+@Repository
 public class UserRepositoryImpl implements UserRepository {
 
 	private JdbcTemplate jdbcTemplate;
