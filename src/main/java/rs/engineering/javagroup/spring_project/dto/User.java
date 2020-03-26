@@ -2,7 +2,7 @@ package rs.engineering.javagroup.spring_project.dto;
 
 public class User {
 
-	
+	private Long id;
 	private String username;
 	private String password;
 	private String firstname;
@@ -34,10 +34,12 @@ public class User {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname="
-				+ lastname + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname
+				+ ", lastname=" + lastname + "]";
 	}
 	public User(String username, String password, String firstname, String lastname) {
 		super();
@@ -68,6 +70,12 @@ public class User {
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

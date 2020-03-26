@@ -1,9 +1,8 @@
 package rs.engineering.javagroup.spring_project.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.ejb.Init;
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import rs.engineering.javagroup.spring_project.dto.User;
-import rs.engineering.javagroup.spring_project.repo.UserRepo;
+
+import rs.engineering.javagroup.spring_project.service.UserService;
 
 
 
@@ -24,11 +24,11 @@ import rs.engineering.javagroup.spring_project.repo.UserRepo;
 public class UserController {
 
 	@Autowired
-	private UserRepo userRepo;
+	private UserService userService;
 	
 	@RequestMapping(value ="/users",method = RequestMethod.GET)
 	public String home(HttpServletRequest request, HttpServletResponse response) {
-		request.setAttribute("list", userRepo.getList());
+		request.setAttribute("list", userService.getAll());
 		
 		return "user/users";
 		
@@ -41,10 +41,9 @@ public class UserController {
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute(name = "user") User user) {
-		if(!userRepo.getList().contains(user)) {
-			userRepo.getList().add(user);
+		if(!userService.getAll().contains(user)) {
+			userService.save(user);
 		}
-		System.out.println(userRepo.getList());
 	
 		return "redirect:/user/addModel";
 	}
