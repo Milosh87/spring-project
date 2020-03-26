@@ -13,8 +13,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
-import rs.engineering.javagroup.spring_project.controller.UserController;
-
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {

@@ -8,7 +8,7 @@
 <title></title>
 </head>
 <body>
-<c:url value="/user/addModel" var="add"></c:url>
+<c:url value="/user/add" var="add"></c:url>
 <c:url value="/user/users" var = "all"></c:url>
 
 <a href="${add}">add</a>

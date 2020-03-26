@@ -1,8 +1,5 @@
 package rs.engineering.javagroup.spring_project.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,7 +34,7 @@ public class UserController {
 		if (!userService.getAll().contains(user)) {
 			userService.save(user);
 		}
-		ModelAndView modelAndView = new ModelAndView("redirect:/user/addModel");
+		ModelAndView modelAndView = new ModelAndView("redirect:/user/add");
 		return modelAndView;
 
 	}
@@ -47,9 +44,9 @@ public class UserController {
 		return new User("n/a", "n/a", "n/a", "n/a");
 	}
 
-	@RequestMapping(value = "/addModel", method = RequestMethod.GET)
-	public ModelAndView addModel() {
-		ModelAndView modelAndView = new ModelAndView("user/addModel");
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public ModelAndView add() {
+		ModelAndView modelAndView = new ModelAndView("user/add");
 		modelAndView.addObject("action", "Action: add new user");
 		return modelAndView;
 

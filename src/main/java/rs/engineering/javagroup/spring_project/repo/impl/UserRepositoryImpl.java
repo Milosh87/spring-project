@@ -18,36 +18,32 @@ import rs.engineering.javagroup.spring_project.repo.UserRepository;
 public class UserRepositoryImpl implements UserRepository {
 
 	private JdbcTemplate jdbcTemplate;
+
 	@Autowired
-	public UserRepositoryImpl (JdbcTemplate jdbcTemplate) {
+	public UserRepositoryImpl(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
-	
+
 	@Override
 	public void save(User user) {
 
 		jdbcTemplate.update("INSERT INTO user (firstname,lastname,username,password) " + "VALUES(?,?,?,?)",
-				user.getFirstname(),
-				user.getLastname(),
-				user.getUsername(),
-				user.getPassword());
-		
-	}
+				user.getFirstname(), user.getLastname(), user.getUsername(), user.getPassword());
 
+	}
 
 	@Override
 	public List<User> getAll() {
 		String query = "SELECT * FROM user";
 		return jdbcTemplate.query(query, new UserMapper());
-		
+
 	}
-	
-	class UserMapper implements RowMapper<User>{
+
+	class UserMapper implements RowMapper<User> {
 
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-			// TODO Auto-generated method stub
+
 			User user = new User();
 			user.setId(rs.getLong("id"));
 			user.setFirstname(rs.getString("firstname"));
@@ -56,13 +52,13 @@ public class UserRepositoryImpl implements UserRepository {
 			user.setPassword(rs.getString("password"));
 			return user;
 		}
-		
+
 	}
 
 	@Override
 	public User findById(Long id) {
 		String query = "SELECT * FROM user WHERE id = ?";
-		return jdbcTemplate.queryForObject(query,new Object[] {id}, (ResultSet rs, int rowNumber)-> {
+		return jdbcTemplate.queryForObject(query, new Object[] { id }, (ResultSet rs, int rowNumber) -> {
 			User user = new User();
 			user.setId(rs.getLong("id"));
 			user.setFirstname(rs.getString("firstname"));
@@ -71,7 +67,6 @@ public class UserRepositoryImpl implements UserRepository {
 			user.setPassword(rs.getString("password"));
 			return user;
 		});
-	
-	
-}
+
+	}
 }
