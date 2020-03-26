@@ -58,7 +58,12 @@ public class UserController {
 	
 		return "user/addModel";
 	}
-	
+	@RequestMapping(value ="/userId", method = RequestMethod.GET)
+	public String userId(HttpServletRequest request, HttpServletResponse response) {
+		User user = userService.findById(Long.parseLong(request.getParameter("id")));
+		request.setAttribute("userid", user);
+		return "user/userId";
+	}
 	
 	
 	

@@ -8,6 +8,7 @@
 <title>Users</title>
 </head>
 <body>
+
 <jsp:include page="../menu.jsp"></jsp:include>
 	This is users.jsp
 	<br/>
@@ -18,14 +19,18 @@
     	<th>Password </th>
     	<th>First name </th>
     	<th>Last name</th>
+    	<th>User page</th>
 	</tr>
 	<c:forEach items="${list}" var="user">
-	
+		<c:url value="/user/userId" var="userId">
+		<c:param name="id" value="${user.id}"></c:param>
+		</c:url>
     	<tr>
     	<td>${user.username} </td>
     	<td>${user.password} </td>
     	<td>${user.firstname} </td>
     	<td>${user.lastname} </td>
+    	<td><a href="${userId}">"${user.username}"</a> </td>
     	 </tr>
 </c:forEach>
 </table>
